@@ -1,11 +1,14 @@
-<div class="container">
-  <h1>Edit task: <%=@task.title%></h1>
-  <p>Details: <%= @task.details%></p>
-  <%= simple_form_for @task do |f| %>
-    <%= f.input :title, label: "New Title" %>
-    <%= f.input :details, label: "New Details" %>
-    <%= f.input :completed, label: "Completed?" %>
-    <%= f.submit class: 'btn btn-primary'%>
-  <% end %>
-  <%= link_to '< Back to all Tasks', tasks_path, class: 'btn-light opacity-75 text-decoration-none'%>
+<div class="container mt-5">
+  <h1 class="mb-3">Edit task: <%=@task.title%></h1>
+  <p class="text-muted mb-4">Details: <%= @task.details%></p>
+
+  <div class="card p-4">
+    <%= simple_form_for @task do |f| %>
+      <%= f.input :title, label: "New Title" %>
+      <%= f.input :details, label: "New Details" %>
+      <%= f.input :completed, label: "Completed?" %>
+      <%= f.submit class: 'btn btn-primary me-2' %>
+      <%= link_to '< Back to all Tasks', tasks_path, class: 'btn btn-light' %>
+    <% end %>
+  </div>
 </div>

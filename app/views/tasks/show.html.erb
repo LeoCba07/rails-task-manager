@@ -1,7 +1,14 @@
-<h2><%= @task.title%></h2>
-<p><%= @task.details%></p>
-<input type="checkbox" <%="checked='checked'" if @task.completed%>> <%=@task.completed ? "Done!" : "Not yet!"%>
-<br>
-<%= link_to '< Back to all Tasks', tasks_path, class: 'btn-light opacity-75 text-decoration-none'%>
-<br>
-<%= link_to 'Edit this task', edit_task_path, class: 'btn-light opacity-75 text-decoration-none'%>
+<div class="container mt-5">
+  <div class="card p-4">
+    <h2 class="mb-3"><%= @task.title%></h2>
+    <p class="text-muted mb-4"><%= @task.details%></p>
+
+    <div class="mb-4">
+      <input type="checkbox" class="me-2" <%="checked='checked'" if @task.completed%>>
+      <span><%=@task.completed ? "Done!" : "Not yet!"%></span>
+    </div>
+
+    <%= link_to '< Back to all Tasks', tasks_path, class: 'btn btn-light me-2'%>
+    <%= link_to 'Edit this task', edit_task_path, class: 'btn btn-primary'%>
+  </div>
+</div>

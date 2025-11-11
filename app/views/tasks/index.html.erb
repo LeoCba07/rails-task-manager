@@ -1,12 +1,19 @@
-<h1>My tasks</h1>
+<div class="container mt-5">
+  <h1 class="mb-4">My tasks</h1>
 
   <% @tasks.each do |task| %>
-    <p class="d-flex">
-    <input type="checkbox" name="checkbox"> <%= link_to task.title, task %>
-      <%= link_to task_path(task), class: 'text-dark text-decoration-none', data: { turbo_method: :delete, turbo_confirm: "Do you want to delete #{task.title}" } do %>
-        <i class="fas fa-trash mx-1"></i>
-      <% end %>
-    </p>
+    <div class="card mb-3 p-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <input type="checkbox" class="me-2">
+          <%= link_to task.title, task, class: 'text-decoration-none' %>
+        </div>
+        <%= link_to task_path(task), class: 'text-danger', data: { turbo_method: :delete, turbo_confirm: "Do you want to delete #{task.title}?" } do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
-<%= link_to 'Add new task', new_task_path%>
+  <%= link_to 'Add new task', new_task_path, class: 'btn btn-primary mt-3' %>
+</div>
